@@ -2,8 +2,19 @@
 再起動割り込み  
 suidをrootにするならShellScriptではダメらしいのでバイナリを
 
-## instration
+
+## How to install
 ```
 make
 sudo make install
+```
+
+## How to use
+```
+reboot-f
+```
+
+## How to uninstall
+```
+rm /usr/local/bin/reboot-f
 ```
