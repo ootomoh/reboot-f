@@ -1,5 +1,11 @@
-#include <cstdlib>
+#include <fstream>
+
+const std::string cs = "sub";
 
 int main(){
-	std::system("echo s > /proc/sysrq-trigger && echo u > /proc/sysrq-trigger && echo b > /proc/sysrq-trigger");
+	for(auto c : cs){
+		std::ofstream ofs("/proc/sysrq-trigger");
+		ofs<<c;
+		ofs.close();
+	}
 }
