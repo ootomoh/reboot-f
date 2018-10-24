@@ -1,7 +1,7 @@
 CXX=g++
 CXXFLAGS=-std=c++11
 INSTALLPATH=/usr/local/bin
-TARGET=reboot-f
+TARGET=rio-panch
 
 $(TARGET): main.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
