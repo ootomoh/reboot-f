@@ -1,6 +1,8 @@
 #include <fstream>
 #include <iostream>
 #include <unistd.h>
+#include <ctime>
+#include <locale>
 
 const std::string cs = "sub";
 
@@ -18,7 +20,11 @@ int main(int argc, char** argv){
 	char hostname[buffer_size];
 	getlogin_r(username, buffer_size);
 	gethostname(hostname, buffer_size);
-	std::cout<<username<<" : "<<hostname<<std::endl;
+	std::locale::global(std::locale("ja_JP.utf8"));
+    std::time_t t = std::time(nullptr);
+    char mbstr[100];
+    std::strftime(mbstr, sizeof(mbstr), "%A %c", std::localtime(&t));
+	std::cout<<"["<<mbstr<<"] "<<username<<" : "<<hostname<<std::endl;
 
 	std::ofstream log_ofs("/home/user/reboot-f.log", std::ios::app);
 	log_ofs << username <<" ,"<< hostname << "\n";
