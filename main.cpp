@@ -22,8 +22,8 @@ int main(int argc, char** argv){
 	gethostname(hostname, buffer_size);
 	std::locale::global(std::locale("ja_JP.utf8"));
     std::time_t t = std::time(nullptr);
-    char mbstr[100];
-    std::strftime(mbstr, sizeof(mbstr), "%A %c", std::localtime(&t));
+	char mbstr[100];
+	std::strftime(mbstr, sizeof(mbstr), "%Y-%m-%d %H:%I:%S", std::localtime(&t));
 	std::cout<<"["<<mbstr<<"] "<<username<<" : "<<hostname<<std::endl;
 
 	std::ofstream log_ofs("/home/user/reboot-f.log", std::ios::app);
